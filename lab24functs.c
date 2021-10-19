@@ -31,13 +31,15 @@ void getDataText(CadetInfoStructType cinfo[], int numRecs, char fname[]) {
     char firstName[50];
     char lastName[50];
     int numRead = 0; 
+    int num; 
 
     while (numRead < 123 && !feof(inFile)) {
+        fscanf(inFile, "%d", &num); 
         fscanf(inFile, "%s %s %d %d %d", lastName, firstName, &cinfo[numRead].age, &cinfo[numRead].squad, &cinfo[numRead].year);
         strcat(firstName, " ");
         strcpy(cinfo[numRead].name, strcat(firstName, lastName));
         numRead++;
-        }
+    }
     
     fclose(inFile);
 }
