@@ -5,33 +5,28 @@ int main() {
 
 CadetInfoStructType cinfo[121];
 
-char fname[100];
-scanf("%s", fname);
+int* ptr = (int*)malloc(123 * sizeof(int));
 
-int NumRecs = getNumRecs(fname);
+int NumRecs = getNumRecs("lab24data.txt");
 printf("Reading number of records in the data file.\n");
 printf("%d records in the data file.\n", NumRecs);
 
 printf("The first cadet is:\n");
-getDataText(cinfo, NumRecs, fname);
-
+getDataText(cinfo, 1, "lab24data.txt");
+    
+    printf("Cadet name = %s\n", cinfo[1].name);
+    printf("Cadet age = %d\n", cinfo[1].age); 
+    printf("Cadet squad = %d\n", cinfo[1].squad);
+    printf("Cadet year = %d\n", cinfo[1].year);
 
 printf("The last cadet is:\n");
-getDataText(cinfo, NumRecs, fname);
+getDataText(cinfo, NumRecs - 1, "lab24data.txt");
+    printf("Cadet name = %s\n", cinfo[NumRecs].name);
+    printf("Cadet age = %d\n", cinfo[NumRecs].age); 
+    printf("Cadet squad = %d\n", cinfo[NumRecs].squad);
+    printf("Cadet year = %d\n", cinfo[NumRecs].year);
 
-//malloc() statements
-//malloc( * sizeof(CadetInfoStructType));
-
-    /* printf("Cadet name = %s %s\n", getDataText(, 1, cinfo));
-    printf("Cadet age = %d\n", age);
-    printf("Cadet squad = %d\n", squad);
-    printf("Cadet year = %d\n", year);
- 
-    printf("Cadet name = %s %s\n", firstName, lastName);
-    printf("Cadet age = %d\n", age);
-    printf("Cadet squad = %d\n", squad);
-    printf("Cadet year = %d\n", year);
- */
-    //free
     return 0;
+free(ptr); 
+
 }

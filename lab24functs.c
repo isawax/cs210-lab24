@@ -25,17 +25,15 @@ void getDataText(CadetInfoStructType cinfo[], int numRecs, char fname[]) {
 
     if (inFile == NULL) {
         printf("Error reading file.\n");
+        exit(-1); 
     }
     
     char firstName[50];
     char lastName[50];
-    int age = 0;
-    int squad = 0;
-    int year = 0; 
-    int numRead = 1; 
+    int numRead = 0; 
 
-    while (numRead < 121 && !feof(inFile)) {
-        fscanf(inFile, "%s %s %d %d %d", firstName, lastName, &cinfo[numRead].age, &cinfo[numRead].squad, &cinfo[numRead].year);
+    while (numRead < 123 && !feof(inFile)) {
+        fscanf(inFile, "%s %s %d %d %d", lastName, firstName, &cinfo[numRead].age, &cinfo[numRead].squad, &cinfo[numRead].year);
         strcat(firstName, " ");
         strcpy(cinfo[numRead].name, strcat(firstName, lastName));
         numRead++;
