@@ -4,8 +4,7 @@
 #include <stdlib.h>
 
 typedef struct CadetInfoStruct {
-    char firstname[50];
-    char lastname[50]; 
+    char name[50];
     int age;
     int squad;
     int year;
